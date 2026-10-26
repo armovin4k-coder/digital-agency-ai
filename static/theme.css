@@ -1,0 +1,406 @@
+:root {
+    color-scheme: light;
+    --ivory: #f4f0e6;
+    --ivory-panel: #fffdf8;
+    --ivory-soft: #ebe6da;
+    --ink: #292a27;
+    --ink-muted: #666760;
+    --icon-gray: #b5b6b2;
+    --theme-line: #d8d5cc;
+}
+
+html {
+    color-scheme: light;
+    background: var(--ivory);
+}
+
+body {
+    color: var(--ink) !important;
+    background: var(--ivory) !important;
+}
+
+body::before,
+.hero::after {
+    display: none !important;
+}
+
+header,
+.header {
+    border-color: var(--theme-line) !important;
+    background: rgba(244, 240, 230, .94) !important;
+    box-shadow: 0 4px 20px rgba(53, 51, 44, .045);
+    backdrop-filter: blur(16px);
+}
+
+.nav,
+.nav a,
+.brand,
+.header-inner,
+.crumbs,
+.footer,
+footer,
+body :is(h1, h2, h3, h4, p, li, dt, dd, label, summary, strong, small, .eyebrow, .intro, .muted, .section-heading span, .portfolio-category, .service-category, .step, .audience) {
+    color: var(--ink) !important;
+}
+
+body :is(p, li, dd, .intro, .muted, .section-heading p, .step p, .audience, .related-card span, .service-card p, .feature p, .case-copy p, .portfolio-copy p, .consent, .copyright, .footer, .crumbs) {
+    color: var(--ink-muted) !important;
+}
+
+a,
+.nav a,
+.language-switch,
+.lang-switch,
+.back,
+.privacy-link,
+.consent a {
+    color: var(--ink) !important;
+}
+
+a:hover,
+.nav a:hover,
+.language-switch:hover,
+.lang-switch:hover,
+.back:hover {
+    color: #77776f !important;
+}
+
+.nav {
+    border-color: var(--theme-line) !important;
+    background: rgba(255, 253, 248, .85) !important;
+    box-shadow: none !important;
+}
+
+.brand-symbol {
+    background: linear-gradient(145deg, #fdfbf5, #d9d7d0 55%, #bbbcb7) !important;
+    filter: none !important;
+}
+
+.brand-symbol span {
+    border-color: #d0cec7 !important;
+    background: var(--ivory-panel) !important;
+    color: #555650 !important;
+    text-shadow: none !important;
+}
+
+.brand-mark {
+    border-color: var(--theme-line) !important;
+    color: var(--ink) !important;
+}
+
+.button,
+.nav-cta,
+.contact-form button,
+.cookie-notice button,
+.back-to-top {
+    border-color: #353630 !important;
+    background: #353630 !important;
+    box-shadow: none !important;
+    color: #fffdf8 !important;
+}
+
+.button:hover,
+.nav-cta:hover,
+.contact-form button:hover,
+.cookie-notice button:hover,
+.back-to-top:hover {
+    background: #55564f !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+.button-outline,
+.button-secondary,
+.secondary {
+    border-color: var(--theme-line) !important;
+    background: var(--ivory-panel) !important;
+    color: var(--ink) !important;
+    box-shadow: none !important;
+}
+
+.gradient-text,
+.gradient {
+    background: none !important;
+    color: var(--ink) !important;
+    -webkit-text-fill-color: currentColor !important;
+}
+
+i[class*="fa-"],
+i[class*="fa-"]::before,
+.metric-icon,
+.card-icon,
+.service-card i,
+.contact-channels i,
+.includes li::before,
+.back-to-top i {
+    color: var(--icon-gray) !important;
+    background: none !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: var(--icon-gray) !important;
+    animation: none !important;
+    filter: none !important;
+    text-shadow: none !important;
+}
+
+i[class*="fa-"] {
+    transition: transform .2s ease, color .2s ease;
+}
+
+i[class*="fa-"]:hover {
+    color: #92938e !important;
+    -webkit-text-fill-color: #92938e !important;
+}
+
+.offer-card,
+.metric,
+.industry-card,
+.benefit-card,
+.format-card,
+.integration-card,
+.pain-card,
+.faq-list details,
+.contact-panel,
+.requisites,
+.step,
+.service-card,
+.feature,
+.case,
+.portfolio-card,
+.closing,
+.audience,
+.includes li,
+.related-card,
+.service-faq details,
+.review-card,
+.result-card {
+    border-color: var(--theme-line) !important;
+    background: var(--ivory-panel) !important;
+    box-shadow: 0 8px 24px rgba(53, 51, 44, .045) !important;
+}
+
+.offer-card:hover,
+.metric:hover,
+.industry-card:hover,
+.service-card:hover,
+.related-card:hover {
+    border-color: #aaa99f !important;
+}
+
+.hero,
+.section,
+.contact-section,
+main {
+    border-color: var(--theme-line) !important;
+}
+
+.contact-form input,
+.contact-form textarea,
+input,
+textarea {
+    border-color: var(--theme-line) !important;
+    background: var(--ivory-panel) !important;
+    color: var(--ink) !important;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder,
+input::placeholder,
+textarea::placeholder {
+    color: #888981 !important;
+}
+
+.cookie-notice {
+    border-color: var(--theme-line) !important;
+    background: var(--ivory-panel) !important;
+    box-shadow: 0 14px 48px rgba(53, 51, 44, .15) !important;
+}
+
+.cookie-notice p {
+    color: var(--ink-muted) !important;
+}
+
+.case-visual::after,
+.portfolio-visual::after {
+    border-color: rgba(255, 253, 248, .7) !important;
+    background: rgba(41, 42, 39, .68) !important;
+    color: #fffdf8 !important;
+}
+
+.contact-panel {
+    grid-template-columns: .8fr 1.2fr;
+}
+
+::selection {
+    background: #dfdbd0;
+    color: var(--ink);
+}
+
+@media (max-width: 700px) {
+    .nav {
+        background: var(--ivory-panel) !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+html {
+    scroll-padding-top: 96px;
+    overflow-x: clip;
+}
+
+body {
+    font-size: 16px !important;
+}
+
+header,
+.header {
+    position: sticky !important;
+    z-index: 20 !important;
+    top: 0;
+}
+
+.skip-link {
+    position: fixed;
+    z-index: 100;
+    top: 12px;
+    left: 12px;
+    padding: 12px 16px;
+    transform: translateY(-160%);
+    border: 1px solid var(--theme-line);
+    border-radius: 8px;
+    background: var(--ivory-panel);
+    color: var(--ink) !important;
+    box-shadow: 0 8px 24px rgba(53, 51, 44, .16);
+    font-weight: 700;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+:focus-visible {
+    outline: 3px solid #77786f !important;
+    outline-offset: 3px !important;
+}
+
+main[id] {
+    scroll-margin-top: 96px;
+}
+
+body :is(.hero-copy, .intro) {
+    font-size: 1rem !important;
+    line-height: 1.7;
+}
+
+body :is(
+    .section-heading p,
+    .offer-card p,
+    .service-card p,
+    .feature p,
+    .case-copy p,
+    .portfolio-copy p,
+    .pain-card p,
+    .benefit-card p,
+    .step-card p,
+    .format-card p,
+    .integration-card p,
+    .contact-panel > div > p,
+    .consent-check,
+    .contact-privacy-note,
+    .note,
+    .muted,
+    .service-faq details p,
+    .related-card span,
+    .cookie-notice p,
+    main p,
+    main li
+) {
+    font-size: .875rem !important;
+    line-height: 1.65;
+}
+
+body :is(
+    .nav a,
+    .nav-cta,
+    .language-switch,
+    .lang-switch,
+    .button,
+    .contact-channels a,
+    .back,
+    .service-faq summary,
+    .faq-list summary,
+    .portfolio-tab,
+    .menu-toggle,
+    .offer-arrow,
+    .cookie-notice button,
+    .back-to-top
+) {
+    min-height: 44px;
+}
+
+.nav a,
+.contact-channels a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.menu-toggle,
+.offer-arrow,
+.back-to-top {
+    min-width: 44px;
+}
+
+.offer-dots button {
+    min-width: 30px;
+    min-height: 30px;
+}
+
+body :is(input, textarea, select) {
+    font-size: 16px !important;
+}
+
+body :is(.offer-card, .service-card, .feature, .case, .portfolio-card, .related-card, .format-card, .integration-card) {
+    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+body :is(.offer-card, .service-card, .feature, .case, .portfolio-card, .related-card, .format-card, .integration-card):focus-within {
+    border-color: #aaa99f !important;
+    box-shadow: 0 10px 28px rgba(53, 51, 44, .09) !important;
+}
+
+@media (hover: hover) {
+    body :is(.service-card, .related-card, .format-card, .integration-card):hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(53, 51, 44, .09) !important;
+    }
+}
+
+@media (max-width: 700px) {
+    html {
+        scroll-padding-top: 78px;
+    }
+
+    main[id] {
+        scroll-margin-top: 78px;
+    }
+
+    .skip-link {
+        top: 8px;
+        left: 8px;
+    }
+
+    body :is(.contact-form input, .contact-form textarea, .contact-form button) {
+        min-height: 48px;
+    }
+
+    body :is(.contact-form textarea) {
+        min-height: 120px;
+    }
+}

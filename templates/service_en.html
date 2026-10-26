@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f0e6">
+    <meta name="description" content="{{ service.summary }} Digital Agency AI serves Krasnoyarsk, Krasnoyarsk Krai and remote clients.">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="alternate" hreflang="ru-RU" href="{{ canonical_url|replace('/en', '') }}">
+    <link rel="alternate" hreflang="en" href="{{ canonical_url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ canonical_url|replace('/en', '') }}">
+    <title>{{ service.title }} in Krasnoyarsk — Digital Agency AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/theme.css">
+    <style>
+        :root { color-scheme:dark; --gold:#d6b985; --muted:#a6aaa6; --line:rgba(255,255,255,.1); }
+        * { box-sizing:border-box; }
+        html { scroll-behavior:smooth; scroll-padding-top:90px; }
+        body { min-width:0; margin:0; color:#f5f2eb; background:radial-gradient(ellipse at 76% 10%,rgba(101,124,129,.12),transparent 35rem),linear-gradient(180deg,#090c11,#0b0e12 60%,#090c10); font:15px/1.7 "Manrope",sans-serif; }
+        a { color:inherit; text-decoration:none; }
+        a:focus-visible { outline:2px solid var(--gold); outline-offset:4px; }
+        .container { width:min(1000px,calc(100% - 48px)); margin-inline:auto; }
+        header { position:sticky; top:0; z-index:2; border-bottom:1px solid rgba(255,255,255,.06); background:rgba(9,12,17,.93); backdrop-filter:blur(14px); }
+        .header-inner,.footer { display:flex; min-height:68px; align-items:center; justify-content:space-between; gap:18px; }
+        .brand { font-size:.8rem; font-weight:800; }
+        .nav { display:flex; flex-wrap:wrap; gap:18px; color:#c4c4bf; font-size:.73rem; }
+        .lang-switch,.eyebrow { color:var(--gold); font-size:.69rem; font-weight:800; }
+        .button { display:inline-flex; min-height:44px; align-items:center; justify-content:center; padding:10px 18px; border:1px solid rgba(239,220,183,.65); border-radius:99px; background:linear-gradient(135deg,#e5cea0,#b9965f); color:#171713; font-size:.76rem; font-weight:800; text-align:center; }
+        main { padding-bottom:60px; }
+        .hero { padding-block:clamp(52px,9vw,104px) 64px; border-bottom:1px solid rgba(255,255,255,.07); }
+        .crumbs { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:25px; color:#939993; font-size:.72rem; }
+        .hero-copy { max-width:780px; }
+        h1 { margin:10px 0; font-size:clamp(2.35rem,7vw,5rem); letter-spacing:-.07em; line-height:1.07; }
+        .intro { max-width:730px; color:#b5b8b4; font-size:1rem; }
+        .actions { display:flex; flex-wrap:wrap; gap:11px; margin-top:22px; }
+        .secondary { border-color:var(--line); background:rgba(255,255,255,.035); color:#f5f2eb; }
+        .section { padding-block:56px; border-bottom:1px solid rgba(255,255,255,.06); }
+        h2 { margin:7px 0 18px; font-size:clamp(1.7rem,4vw,2.65rem); letter-spacing:-.05em; line-height:1.2; }
+        .includes,.steps { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; padding:0; list-style:none; }
+        .includes li,.step,.audience { padding:19px; border:1px solid var(--line); border-radius:13px; background:rgba(255,255,255,.025); color:#d4d5cf; font-size:.82rem; }
+        .includes li::before { margin-right:10px; color:var(--gold); content:"✓"; }
+        .step { min-height:105px; }
+        .audience { font-size:.9rem; }
+        .service-faq { display:grid; gap:10px; }
+        .service-faq details,.related-card { border:1px solid var(--line); border-radius:13px; background:rgba(255,255,255,.025); }
+        .service-faq summary { padding:16px 18px; color:#e6e2d9; font-size:.82rem; font-weight:700; cursor:pointer; }
+        .service-faq details p { margin:0; padding:0 18px 16px; color:var(--muted); font-size:.78rem; }
+        .related-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+        .related-card { display:flex; min-height:84px; flex-direction:column; justify-content:center; padding:16px; transition:border-color .2s ease,transform .2s ease; }
+        .related-card:hover { transform:translateY(-2px); border-color:rgba(214,185,133,.5); }
+        .related-card strong { font-size:.8rem; }
+        .related-card span { margin-top:5px; color:var(--muted); font-size:.7rem; }
+        .closing { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:26px; border:1px solid rgba(214,185,133,.2); border-radius:16px; background:rgba(255,255,255,.025); }
+        .closing p { color:var(--muted); }
+        .footer { min-height:64px; color:#9b9e98; font-size:.74rem; }
+        @media(max-width:700px) {
+            html { scroll-padding-top:72px; }
+            .container { width:min(100% - 32px,540px); }
+            .header-inner { min-height:60px; flex-wrap:wrap; gap:8px 14px; padding-block:9px; }
+            .nav { order:3; flex-basis:100%; justify-content:center; gap:8px 16px; padding-bottom:4px; }
+            .nav a { font-size:.68rem; }
+            .button { min-height:42px; padding:9px 13px; }
+            .hero { padding-block:42px 46px; }
+            .crumbs { margin-bottom:19px; }
+            .intro { font-size:.9rem; }
+            .actions { flex-direction:column; }
+            .section { padding-block:42px; }
+            .includes,.steps { grid-template-columns:1fr; gap:8px; }
+            .includes li,.step { min-height:0; padding:15px; }
+            .related-grid { grid-template-columns:1fr; gap:8px; }
+            .related-card { min-height:70px; }
+            .closing { align-items:flex-start; flex-direction:column; padding:20px; }
+            .footer { min-height:58px; flex-wrap:wrap; }
+        }
+        @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+    </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header><div class="container header-inner">
+    <a class="brand" href="/en">DA · Digital Agency AI</a>
+    <nav class="nav" aria-label="Navigation"><a href="/en#services">Services</a><a href="/en#contact">Contact</a></nav>
+    <a class="lang-switch" href="{{ url_for('service_detail', slug=service.slug) }}">RU</a>
+</div></header>
+<main id="main-content" tabindex="-1">
+    <section class="hero"><div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/en">Home</a><span>/</span><a href="/en#services">Services</a><span>/</span><span aria-current="page">{{ service.title }}</span></nav>
+        <div class="hero-copy"><span class="eyebrow"><i class="{{ service.icon }}" aria-hidden="true"></i> DIGITAL AGENCY AI · KRASNOYARSK</span>
+            <h1>{{ service.title }}</h1><p class="intro">{{ service.intro }}</p>
+            <div class="actions"><a class="button" href="/en#contact">Discuss your project</a><a class="button secondary" href="/en#services">All services</a></div>
+        </div>
+    </div></section>
+    <section class="section"><div class="container"><span class="eyebrow">SCOPE</span><h2>What the work may include</h2><p class="intro">The scope and sequence are agreed after reviewing your goals, materials and project constraints.</p><ul class="includes">{% for item in service.includes %}<li>{{ item }}</li>{% endfor %}</ul></div></section>
+    <section class="section"><div class="container"><span class="eyebrow">OUR APPROACH</span><h2>From a clear brief to a working solution</h2><div class="steps">{% for step in service.stages %}<article class="step">{{ step }}</article>{% endfor %}</div></div></section>
+    <section class="section"><div class="container"><span class="eyebrow">WHO IT'S FOR</span><h2>Designed around your situation</h2><div class="audience">{{ service.audience }}</div></div></section>
+    <section class="section"><div class="container"><span class="eyebrow">FAQ</span><h2>Before getting started</h2><div class="service-faq">{% for question, answer in service_faqs %}<details><summary>{{ question }}</summary><p>{{ answer }}</p></details>{% endfor %}</div></div></section>
+    <section class="section"><div class="container"><span class="eyebrow">RELATED SERVICES</span><h2>Other areas that may help</h2><div class="related-grid">{% for related in related_services %}<a class="related-card" href="{{ url_for('service_detail_en', slug=related.slug) }}"><strong>{{ related.title }}</strong><span>{{ related.summary }}</span></a>{% endfor %}</div></div></section>
+    <section class="container" style="padding-top:42px"><div class="closing"><div><span class="eyebrow">NEXT STEP</span><h2>Let’s discuss the scope of your project</h2><p>Solution, timeline and cost depend on your requirements and are agreed individually.</p></div><a class="button" href="/en#contact">Contact us</a></div></section>
+</main>
+<footer class="container footer"><a href="/en">DA · Digital Agency AI</a><a href="/en/privacy">Privacy Policy</a><span>© Digital Agency AI</span></footer>
+{% include "cookie_banner.html" %}
+</body>
+</html>

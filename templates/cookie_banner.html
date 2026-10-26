@@ -1,0 +1,18 @@
+<aside class="cookie-notice" id="cookieNotice" aria-label="{% if language == 'en' %}Cookie notice{% else %}Уведомление о cookie{% endif %}" hidden>
+    <p>{% if language == 'en' %}This site uses no advertising or analytics cookies. A technical cookie remembers that you dismissed this notice. <a href="{{ url_for('privacy_policy_en') }}">Learn more</a>{% else %}Сайт не использует рекламные или аналитические cookie. Технический cookie запомнит, что вы закрыли это уведомление. <a href="{{ url_for('privacy_policy') }}">Подробнее</a>{% endif %}</p>
+    <button type="button" id="acceptCookieNotice">{% if language == 'en' %}Got it{% else %}Понятно{% endif %}</button>
+</aside>
+<script nonce="{{ csp_nonce }}">
+    (() => {
+        const notice = document.getElementById('cookieNotice');
+        const accept = document.getElementById('acceptCookieNotice');
+        const hasChoice = document.cookie.split(';').some((item) => item.trim().startsWith('da_cookie_notice='));
+
+        if (!hasChoice) notice.hidden = false;
+        accept.addEventListener('click', () => {
+            const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+            document.cookie = `da_cookie_notice=closed; Max-Age=31536000; Path=/; SameSite=Lax${secure}`;
+            notice.hidden = true;
+        });
+    })();
+</script>

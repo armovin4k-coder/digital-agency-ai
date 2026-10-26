@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f0e6">
+    <meta name="description" content="Digital Agency AI builds websites, SEO, advertising, chatbots and business automation for companies in Krasnoyarsk, Krasnoyarsk Krai and beyond.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="alternate" hreflang="ru-RU" href="{{ canonical_url|replace('/en', '') }}">
+    <link rel="alternate" hreflang="en" href="{{ canonical_url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ canonical_url|replace('/en', '') }}">
+    <title>Digital Agency AI — Digital services for business</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/theme.css">
+    <style>
+        :root { color-scheme: dark; --bg:#070a11; --panel:#101522; --text:#f5f6ff; --muted:#aab3ca; --blue:#70caff; --gold:#d6b985; --line:rgba(153,177,224,.2); }
+        * { box-sizing:border-box; }
+        html { scroll-behavior:smooth; scroll-padding-top:88px; }
+        body { min-width:0; margin:0; color:var(--text); background:radial-gradient(ellipse at 50% -10%,rgba(90,88,195,.21),transparent 44rem),linear-gradient(180deg,#070a11,#080c15 58%,#06080e); font:15px/1.65 "Manrope",sans-serif; }
+        a { color:inherit; text-decoration:none; }
+        button,input,textarea { font:inherit; }
+        .container { width:min(1080px,calc(100% - 48px)); margin-inline:auto; }
+        .header { position:sticky; top:0; z-index:5; border-bottom:1px solid var(--line); background:rgba(7,10,17,.92); backdrop-filter:blur(16px); }
+        .header-inner { display:flex; min-height:72px; align-items:center; justify-content:space-between; gap:18px; }
+        .brand { font-weight:800; letter-spacing:.02em; }
+        .nav { display:flex; flex-wrap:wrap; gap:clamp(12px,2vw,25px); color:#d4d9e9; font-size:.75rem; font-weight:700; }
+        .nav a:hover,.lang-switch:hover { color:var(--blue); }
+        .header-actions { display:flex; align-items:center; gap:12px; }
+        .lang-switch { color:var(--gold); font-size:.75rem; font-weight:800; }
+        .button { display:inline-flex; min-height:44px; align-items:center; justify-content:center; padding:10px 19px; border:1px solid rgba(112,202,255,.48); border-radius:10px; background:linear-gradient(110deg,#167fc9,#6536de); box-shadow:0 0 20px rgba(73,90,243,.2); color:#fff; font-size:.78rem; font-weight:800; text-align:center; }
+        .button:hover { filter:brightness(1.13); transform:translateY(-1px); }
+        .hero { display:grid; min-height:520px; align-content:center; justify-items:center; padding-block:65px; text-align:center; }
+        .eyebrow { color:var(--gold); font-size:.7rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+        h1 { max-width:900px; margin:15px 0 0; font-size:clamp(2.35rem,6vw,4.8rem); letter-spacing:-.065em; line-height:1.07; }
+        .gradient { color:#9e9dff; background:linear-gradient(100deg,#70caff,#bd70ff); background-clip:text; -webkit-text-fill-color:transparent; }
+        .hero p { max-width:720px; margin:18px 0 24px; color:#bec9e4; font-size:clamp(.95rem,2vw,1.12rem); }
+        .actions { display:flex; flex-wrap:wrap; justify-content:center; gap:11px; }
+        .secondary { border-color:var(--line); background:rgba(15,20,34,.8); }
+        .section { padding-block:70px; border-top:1px solid rgba(153,177,224,.1); }
+        .section-heading { max-width:720px; margin-bottom:28px; }
+        .section-heading h2 { margin:7px 0; font-size:clamp(1.8rem,4.5vw,3rem); letter-spacing:-.05em; line-height:1.17; }
+        .section-heading p,.muted { color:var(--muted); }
+        .service-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
+        .service-card,.feature,.contact-panel,.requisites { border:1px solid var(--line); border-radius:15px; background:linear-gradient(145deg,rgba(19,28,48,.9),rgba(12,16,27,.85)); }
+        .service-card { min-height:190px; padding:20px; transition:border-color .2s,transform .2s; }
+        .service-card:hover { transform:translateY(-3px); border-color:rgba(112,202,255,.65); }
+        .service-card i { color:var(--gold); font-size:1.25rem; }
+        .service-card h3 { margin:11px 0 5px; font-size:1rem; }
+        .service-card p { margin:0; color:var(--muted); font-size:.79rem; }
+        .feature-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+        .feature { padding:20px; }
+        .feature h3 { margin:0 0 7px; color:var(--blue); font-size:.96rem; }
+        .feature p { margin:0; color:var(--muted); font-size:.8rem; }
+        .case-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
+        .case { overflow:hidden; border:1px solid var(--line); border-radius:14px; background:rgba(16,21,34,.86); }
+        .case-visual { position:relative; overflow:hidden; }
+        .case-visual::after { position:absolute; right:9px; bottom:9px; padding:4px 7px; border:1px solid rgba(255,255,255,.22); border-radius:5px; background:rgba(5,8,16,.62); color:rgba(255,255,255,.8); content:"DIGITAL AGENCY AI"; font-size:.48rem; font-weight:800; letter-spacing:.1em; pointer-events:none; text-shadow:0 1px 3px #000; }
+        .case img { display:block; width:100%; height:190px; object-fit:cover; background:#111827; }
+        .case-copy { padding:16px; }
+        .case-copy h3 { margin:0 0 5px; font-size:.95rem; }
+        .case-copy p { margin:0; color:var(--muted); font-size:.77rem; }
+        .note { margin-top:16px; color:var(--muted); font-size:.75rem; }
+        .steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+        .step { padding:18px; border:1px solid var(--line); border-radius:13px; background:rgba(255,255,255,.025); }
+        .step strong { display:block; margin-bottom:7px; color:var(--gold); }
+        .step p { margin:0; color:var(--muted); font-size:.8rem; }
+        .contact-panel { display:grid; grid-template-columns:.8fr 1.2fr; gap:30px; padding:clamp(20px,4vw,38px); }
+        .contact-panel h2 { margin:8px 0; font-size:clamp(1.8rem,4vw,2.5rem); line-height:1.15; }
+        .contact-panel>div>p { color:var(--muted); font-size:.85rem; }
+        .contact-channels { display:grid; gap:9px; margin-top:14px; }
+        .contact-channels a { display:flex; align-items:center; gap:9px; color:#e7e9f2; font-size:.8rem; overflow-wrap:anywhere; }
+        .contact-channels a:hover { color:var(--gold); }
+        .contact-channels i { width:17px; color:var(--gold); text-align:center; }
+        .contact-form { display:grid; grid-template-columns:1fr 1fr; gap:10px; align-content:start; }
+        .contact-form input,.contact-form textarea { min-width:0; width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; background:#090d17; color:var(--text); font-size:.82rem; }
+        .contact-form textarea { grid-column:1/-1; min-height:100px; resize:vertical; }
+        .consent { grid-column:1/-1; display:flex; align-items:flex-start; gap:9px; color:#c2c8d7; font-size:.7rem; }
+        .consent input { flex:0 0 auto; width:17px; height:17px; margin:2px 0 0; accent-color:#c4a36d; }
+        .consent a,.privacy-link { color:var(--gold); text-decoration:underline; text-underline-offset:3px; }
+        .contact-form button { justify-self:start; cursor:pointer; }
+        .contact-form button:disabled { opacity:.65; cursor:wait; }
+        .form-message { grid-column:1/-1; min-height:1.4em; color:var(--blue); font-size:.8rem; }
+        .requisites { grid-column:1/-1; padding:13px 16px; }
+        .requisites summary { color:var(--gold); font-size:.82rem; font-weight:700; cursor:pointer; }
+        .requisites dl { display:grid; grid-template-columns:minmax(130px,.7fr) 1.3fr; gap:7px 14px; margin:15px 0 2px; font-size:.75rem; overflow-wrap:anywhere; }
+        .requisites dt { color:var(--muted); }
+        .requisites dd { margin:0; }
+        .footer { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; padding-block:25px; color:var(--muted); font-size:.74rem; }
+        .footer nav { display:flex; flex-wrap:wrap; gap:15px; }
+        :focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+        @media (max-width:900px) {
+            .nav { gap:12px; }
+            .nav a { font-size:.68rem; }
+            .service-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .contact-panel { grid-template-columns:1fr; gap:16px; }
+        }
+        @media (max-width:680px) {
+            html { scroll-padding-top:70px; }
+            .container { width:min(100% - 32px,520px); }
+            .header-inner { min-height:60px; gap:10px; }
+            .brand { font-size:.78rem; }
+            .nav { order:3; flex-basis:100%; justify-content:center; gap:9px 16px; padding:0 0 12px; }
+            .header-inner { flex-wrap:wrap; }
+            .header-actions { margin-left:auto; gap:9px; }
+            .header-actions .button { min-height:37px; padding:8px 11px; font-size:.68rem; }
+            .hero { min-height:0; padding-block:72px 58px; }
+            h1 { font-size:clamp(2.25rem,10vw,3.35rem); }
+            .hero p { font-size:.92rem; }
+            .actions { width:100%; }
+            .actions .button { width:100%; }
+            .section { padding-block:54px; }
+            .service-grid,.feature-grid,.case-grid,.steps { grid-template-columns:1fr; gap:10px; }
+            .service-card { min-height:0; padding:18px; }
+            .contact-panel { padding:20px 16px; }
+            .contact-form { grid-template-columns:1fr; }
+            .contact-form input,.contact-form textarea,.consent,.form-message { grid-column:1; }
+            .contact-form button { width:100%; }
+            .requisites dl { grid-template-columns:1fr; gap:3px; }
+            .requisites dd { margin-bottom:7px; }
+            .footer { flex-direction:column; }
+        }
+        @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; animation-duration:.01ms!important; } }
+    </style>
+    <script type="application/ld+json" nonce="{{ csp_nonce }}">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Digital Agency AI","areaServed":["Krasnoyarsk","Krasnoyarsk Krai"],"address":{"@type":"PostalAddress","addressLocality":"Krasnoyarsk","addressRegion":"Krasnoyarsk Krai","postalCode":"660012","addressCountry":"RU"},"telephone":"+7-923-333-95-96","email":"kuzminflo@icloud.com","sameAs":["https://wa.me/5548920052606","https://t.me/kuzminkrsk"],"url":"{{ canonical_url }}"}</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="header">
+    <div class="container header-inner">
+        <a class="brand" href="/en">DA · Digital Agency AI</a>
+        <nav class="nav" aria-label="Main navigation">
+            <a href="#services">Services</a><a href="#integrations">Integrations</a><a href="#cases">Projects</a><a href="#workflow">Process</a><a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions"><a class="lang-switch" href="/">RU</a><a class="button" href="#contact">Discuss a project</a></div>
+    </div>
+</header>
+<main id="main-content" tabindex="-1">
+    <section class="container hero">
+        <span class="eyebrow">Digital services · Krasnoyarsk & beyond</span>
+        <h1>We build and grow <span class="gradient">digital solutions</span> for business</h1>
+        <p>Websites, marketing, chatbots and automation shaped around your goals and the way your team works.</p>
+        <div class="actions"><a class="button" href="#contact">Tell us about your project</a><a class="button secondary" href="#services">Explore services</a></div>
+    </section>
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-heading"><span class="eyebrow">What we do</span><h2>Digital services for business growth</h2><p>From a clear web presence to customer acquisition and workflow automation.</p></div>
+            <div class="service-grid">
+                {% for service in services %}
+                <a class="service-card" href="{{ url_for('service_detail_en', slug=service.slug) }}">
+                    <i class="{{ service.icon }}" aria-hidden="true"></i><h3>{{ service.title }}</h3><p>{{ service.summary }}</p>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="section" id="integrations">
+        <div class="container">
+            <div class="section-heading"><span class="eyebrow">Connected tools</span><h2>How integrations can work</h2><p>Examples only; actual integrations depend on the available APIs and each platform’s configuration.</p></div>
+            <div class="feature-grid">
+                <article class="feature"><h3>Messenger → CRM</h3><p>Send an enquiry from Telegram or WhatsApp to a CRM with its contact details and topic, then notify the team.</p></article>
+                <article class="feature"><h3>Payment → order status</h3><p>Where supported, a payment update can change an order status and trigger a customer notification.</p></article>
+                <article class="feature"><h3>Website → shared inbox</h3><p>Website forms, spreadsheets and CRM tools can be connected so the team handles enquiries in one workflow.</p></article>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="cases">
+        <div class="container">
+            <div class="section-heading"><span class="eyebrow">Selected projects</span><h2>Digital products across different industries</h2><p>Examples of websites and Telegram Mini Apps. We do not publish unverified performance metrics.</p></div>
+            <div class="case-grid">
+                <article class="case"><div class="case-visual"><img src="/static/cases/flowers-miniapp-optimized.jpg" alt="Flower shop Telegram Mini App screens" width="768" height="768" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Flowers Nearby</h3><p>Telegram shop with a catalogue, product pages, cart, checkout and order tracking.</p></div></article>
+                <article class="case"><div class="case-visual"><img src="/static/cases/pknvr-optimized.jpg" alt="PKNVR clothing store website" width="413" height="900" loading="lazy" decoding="async"></div><div class="case-copy"><h3>PKNVR</h3><p>Mobile-first clothing storefront with a catalogue, favourites and collection looks.</p></div></article>
+                <article class="case"><div class="case-visual"><img src="/static/cases/nail-studio-optimized.jpg" alt="Nail Studio website and booking Mini App" width="1152" height="768" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Nail Studio</h3><p>Studio website and Telegram Mini App for service selection, schedules and bookings.</p></div></article>
+                <article class="case"><div class="case-visual"><img src="/static/cases/celsior-optimized.jpg" alt="Celsior detailing studio Mini App" width="412" height="900" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Celsior · Krasnoyarsk</h3><p>Mobile app for detailing services, appointments and service history.</p></div></article>
+                <article class="case"><div class="case-visual"><img src="/static/cases/auto-prime-optimized.jpg" alt="Auto Prime car dealership website design" width="600" height="900" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Auto Prime</h3><p>Dealership website with vehicle listings, services and enquiry forms.</p></div></article>
+                <article class="case"><div class="case-copy"><h3>Rafting on the Mana</h3><p>Website for a tourism project offering rafting trips on the Mana River.</p></div></article>
+            </div>
+            <p class="note">Case studies are shown without quantitative claims; confirmed results can be added when provided.</p>
+        </div>
+    </section>
+    <section class="section" id="workflow">
+        <div class="container">
+            <div class="section-heading"><span class="eyebrow">A clear process</span><h2>From a business need to a working solution</h2></div>
+            <div class="steps">
+                <article class="step"><strong>01 · Understand</strong><p>Discuss goals, current tools, audience and constraints.</p></article>
+                <article class="step"><strong>02 · Plan</strong><p>Agree on scope, priorities, deliverables and ways to review progress.</p></article>
+                <article class="step"><strong>03 · Deliver</strong><p>Build, test and hand over the agreed solution, with a plan for next steps.</p></article>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="formats">
+        <div class="container">
+            <div class="section-heading"><span class="eyebrow">Ways to work together</span><h2>A format that fits your needs</h2><p>Scope, timeline and cost are agreed after reviewing project requirements.</p></div>
+            <div class="feature-grid">
+                <article class="feature"><h3>One-off project</h3><p>Create or update a specific digital product, with an agreed scope, milestones and handover.</p></article>
+                <article class="feature"><h3>Ongoing marketing</h3><p>Develop customer acquisition through SEO, paid advertising or social media with clear priorities.</p></article>
+                <article class="feature"><h3>Support and growth</h3><p>Maintain a live website, improve features and implement integrations as priorities evolve.</p></article>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="approach">
+        <div class="container">
+            <div class="section-heading"><span class="eyebrow">Our approach</span><h2>Practical technology, built around your business</h2><p>We start with the real process and the outcome you need—not a fashionable tool.</p></div>
+            <div class="feature-grid">
+                <article class="feature"><h3>Understand first</h3><p>We review your workflows, audience and available data before recommending a solution.</p></article>
+                <article class="feature"><h3>Build what fits</h3><p>We agree on the scope, connect suitable services and make the next steps clear.</p></article>
+                <article class="feature"><h3>Improve over time</h3><p>We test the result, learn from real use and help develop the solution further.</p></article>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="contact">
+        <div class="container contact-panel">
+            <div><span class="eyebrow">A good first step</span><h2>Let’s discuss your project</h2><p>Leave your contact details and a short description. We’ll get back to you to clarify the request and possible scope.</p>
+                <nav class="contact-channels" aria-label="Other ways to contact us">
+                    <a href="https://wa.me/5548920052606" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp: +55 48 92005-2606</a>
+                    <a href="https://t.me/kuzminkrsk" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram" aria-hidden="true"></i>Telegram: @kuzminkrsk</a>
+                    <a href="mailto:kuzminflo@icloud.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i>kuzminflo@icloud.com</a>
+                    <a href="tel:+79233339596"><i class="fa-solid fa-phone" aria-hidden="true"></i>+7 (923) 333-95-96</a>
+                </nav>
+            </div>
+            <form class="contact-form" id="auditForm">
+                <input type="text" name="name" placeholder="Your name" autocomplete="name" maxlength="120" required aria-label="Your name">
+                <input type="text" name="contact" placeholder="Phone, Telegram or email" maxlength="120" required aria-label="Your contact details">
+                <textarea name="task" placeholder="Briefly describe what you need" maxlength="1000" required aria-label="Project description"></textarea>
+                <label class="consent"><input type="checkbox" name="consent" required><span>I agree that ООО «ТРЭВЕЛ ФЭМИЛИ» may process these details to respond to my enquiry, including delivery via Telegram, as described in the <a href="/en/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</span></label>
+                <button class="button" type="submit">Send an enquiry</button>
+                <span class="form-message" id="formMessage" role="status" aria-live="polite"></span>
+            </form>
+            <details class="requisites">
+                <summary>Company details</summary>
+                <dl>
+                    <dt>Legal entity</dt><dd>ООО «ТРЭВЕЛ ФЭМИЛИ»</dd>
+                    <dt>Registered address</dt><dd>Office 42, 97 Sudostroitelnaya Street, Krasnoyarsk, Krasnoyarsk Krai, 660012, Russia</dd>
+                    <dt>Tax ID (INN)</dt><dd>2464160738</dd>
+                    <dt>Tax registration code (KPP)</dt><dd>246401001</dd>
+                    <dt>Registration No. (OGRN)</dt><dd>1222400030995</dd>
+                    <dt>Municipal code (OKTMO)</dt><dd>04701000001</dd>
+                    <dt>Bank</dt><dd>Tochka Bank LLC</dd>
+                    <dt>Account</dt><dd>40702810901500168469</dd>
+                    <dt>Bank tax ID</dt><dd>9721194461</dd>
+                    <dt>Bank routing code (BIK)</dt><dd>044525104</dd>
+                    <dt>Correspondent account</dt><dd>30101810745374525104</dd>
+                    <dt>Bank address</dt><dd>Floor 1, Premises 43, Building 8, 1 Veshnyakovsky Drive, Moscow, 109456, Russia</dd>
+                    <dt>Contact person</dt><dd>A. A. Mitryakova</dd>
+                    <dt>Phone</dt><dd><a href="tel:+79233339596">+7 (923) 333-95-96</a></dd>
+                </dl>
+            </details>
+        </div>
+    </section>
+</main>
+<footer class="container footer"><span>© Digital Agency AI</span><nav aria-label="Footer"><a href="/en/privacy">Privacy Policy</a><a href="/">Русская версия</a></nav></footer>
+{% include "cookie_banner.html" %}
+<script nonce="{{ csp_nonce }}">
+    document.getElementById('auditForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const button = form.querySelector('button');
+        const message = document.getElementById('formMessage');
+        const originalText = button.textContent;
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        message.textContent = '';
+        try {
+            const response = await fetch('/api/audit?lang=en', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    name: form.elements.name.value,
+                    phone: form.elements.contact.value,
+                    task: form.elements.task.value,
+                    consent: form.elements.consent.checked,
+                    language: 'en'
+                })
+            });
+            const result = await response.json();
+            message.textContent = result.message || 'We could not process your enquiry.';
+            if (response.ok) form.reset();
+        } catch {
+            message.textContent = 'Connection error. Please try again later.';
+        } finally {
+            button.disabled = false;
+            button.textContent = originalText;
+        }
+    });
+</script>
+</body>
+</html>

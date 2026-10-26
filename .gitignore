@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+ai_agency_project/
+ai_agency_project.zip
+php_site/
+php_site.zip
+config.php

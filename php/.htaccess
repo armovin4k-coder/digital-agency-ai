@@ -1,0 +1,24 @@
+DirectoryIndex index.php
+Options -Indexes
+RewriteEngine On
+
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<FilesMatch "\.zip$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>
