@@ -79,7 +79,7 @@ Seed создаёт шесть пользователей:
 | Креативщик | creative.dmitry@creativeops.demo |
 | Руководитель | manager.elena@creativeops.demo |
 
-Пароль демо задаётся явно через `DEMO_USER_PASSWORD`; seed не использует встроенный пароль. В production демо-вход по умолчанию запрещён. Его можно включить только на отдельной базе, содержащей исключительно демонстрационные данные: задайте серверные `ENABLE_DEMO_LOGIN=true` и `DEMO_DATABASE_ISOLATED=true`, а также клиентские `NEXT_PUBLIC_ENABLE_DEMO_LOGIN=true` и `NEXT_PUBLIC_DEMO_DATABASE_ISOLATED=true`. Перед seed в production дополнительно требуются `SEED_ISOLATED_DEMO_DATABASE=true` и `DEMO_DATABASE_ISOLATED=true`. Никогда не включайте эти параметры для базы с реальными данными.
+Пароль демо задаётся явно через `DEMO_USER_PASSWORD`; seed не использует встроенный пароль. Кнопки входа используют `NEXT_PUBLIC_DEMO_USER_PASSWORD`, поэтому этот пароль публичен и допустим только для тестовых данных. В production демо-вход по умолчанию запрещён. Его можно включить только на отдельной базе, содержащей исключительно демонстрационные данные: задайте серверные `ENABLE_DEMO_LOGIN=true` и `DEMO_DATABASE_ISOLATED=true`, а также клиентские `NEXT_PUBLIC_ENABLE_DEMO_LOGIN=true` и `NEXT_PUBLIC_DEMO_DATABASE_ISOLATED=true`. Перед seed в production дополнительно требуются `SEED_ISOLATED_DEMO_DATABASE=true` и `DEMO_DATABASE_ISOLATED=true`. Никогда не включайте эти параметры для базы с реальными данными.
 
 На Vercel production build автоматически применяет Prisma-миграции. Для первоначальной загрузки демо-данных временно задайте `SEED_ISOLATED_DEMO_DATABASE=true` только для Production и удалите этот флаг после успешного деплоя. Preview-деплои не запускают миграции и seed.
 
