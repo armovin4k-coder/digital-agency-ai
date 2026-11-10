@@ -45,8 +45,8 @@ Copy-Item .env.example .env
 Заполни `.env`:
 
 ```env
-DATABASE_URL="postgresql://...pooled..."
-DIRECT_URL="postgresql://...direct..."
+DATABASE_URL="postgresql://...direct..."
+DATABASE_URL_POOLED="postgresql://...pooled..."
 NEXTAUTH_URL="http://localhost:3000"
 NEXTAUTH_SECRET="generate-a-long-random-secret"
 BLOB_READ_WRITE_TOKEN="vercel_blob_rw_..."
@@ -54,7 +54,7 @@ DEMO_USER_PASSWORD="choose-a-private-local-password"
 NEXT_PUBLIC_DEMO_USER_PASSWORD="same-private-local-password"
 ```
 
-Для Neon `DATABASE_URL` обычно указывает на pooled endpoint для runtime, `DIRECT_URL` — на прямое соединение для миграций. Не публикуй эти значения и не коммить `.env`. Для production обязателен уникальный `NEXTAUTH_SECRET`; приложение не использует встроенный резервный секрет.
+Приложение использует `DATABASE_URL_POOLED` для runtime, а Prisma CLI — прямой `DATABASE_URL` для миграций. Не публикуй эти значения и не коммить `.env`. Для production обязателен уникальный `NEXTAUTH_SECRET`; приложение не использует встроенный резервный секрет.
 
 ```bash
 npm run db:generate
