@@ -79,7 +79,9 @@ Seed создаёт шесть пользователей:
 | Креативщик | creative.dmitry@creativeops.demo |
 | Руководитель | manager.elena@creativeops.demo |
 
-Пароль демо задаётся явно через `DEMO_USER_PASSWORD`; seed не использует встроенный пароль и запрещён в production. Демо-вход показывается и разрешается только при `NODE_ENV` отличном от `production`; публичный demo-login в production отключён, так как отдельная изоляция demo-данных не реализована.
+Пароль демо задаётся явно через `DEMO_USER_PASSWORD`; seed не использует встроенный пароль. В production демо-вход по умолчанию запрещён. Его можно включить только на отдельной базе, содержащей исключительно демонстрационные данные: задайте серверные `ENABLE_DEMO_LOGIN=true` и `DEMO_DATABASE_ISOLATED=true`, а также клиентские `NEXT_PUBLIC_ENABLE_DEMO_LOGIN=true` и `NEXT_PUBLIC_DEMO_DATABASE_ISOLATED=true`. Перед seed в production дополнительно требуются `SEED_ISOLATED_DEMO_DATABASE=true` и `DEMO_DATABASE_ISOLATED=true`. Никогда не включайте эти параметры для базы с реальными данными.
+
+На Vercel production build автоматически применяет Prisma-миграции. Для первоначальной загрузки демо-данных временно задайте `SEED_ISOLATED_DEMO_DATABASE=true` только для Production и удалите этот флаг после успешного деплоя. Preview-деплои не запускают миграции и seed.
 
 ## Роли и доступ
 
@@ -212,7 +214,7 @@ npm run build
 4. Добавь все production environment variables (`DATABASE_URL`, `DIRECT_URL`, `NEXTAUTH_URL`, `NEXTAUTH_SECRET`, `BLOB_READ_WRITE_TOKEN`).
 5. Оставь `DEMO_LOGIN_ENABLED=false` и `NEXT_PUBLIC_DEMO_LOGIN_ENABLED=false`, если специально не публикуешь демо.
 6. Выполни миграции через `npm run db:deploy` в контролируемом deployment step.
-7. Не запускай `npm run db:seed` в production. Демо-аккаунты предназначены для локального/тестового стенда; production-вход ими заблокирован.
+7. Не запускай `npm run db:seed` в production, кроме отдельной изолированной демо-базы при явном включении `SEED_ISOLATED_DEMO_DATABASE=true` и `DEMO_DATABASE_ISOLATED=true`. Никогда не включай production demo-login для базы с реальными данными.
 8. Запусти проверку login, RBAC, загрузки файлов, workflow и аналитики после деплоя.
 
 ## Архитектура

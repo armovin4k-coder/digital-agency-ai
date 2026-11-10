@@ -3,11 +3,17 @@
 import { useState, type FormEvent } from "react";
 import { signIn } from "next-auth/react";
 import { demoAccounts } from "@/lib/demo-accounts";
+import { isDemoLoginEnabled } from "@/lib/demo-mode";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 
-const demoPassword =
-  process.env.NODE_ENV === "production" ? "" : process.env.NEXT_PUBLIC_DEMO_USER_PASSWORD ?? "";
-const showDemoAccounts = process.env.NODE_ENV !== "production";
+const showDemoAccounts = isDemoLoginEnabled(
+  process.env.NODE_ENV,
+  process.env.NEXT_PUBLIC_ENABLE_DEMO_LOGIN,
+  process.env.NEXT_PUBLIC_DEMO_DATABASE_ISOLATED,
+);
+const demoPassword = showDemoAccounts
+  ? process.env.NEXT_PUBLIC_DEMO_USER_PASSWORD ?? ""
+  : "";
 
 const roleLabels: Record<string, string> = {
   BUYER: "Байер",

@@ -12,8 +12,14 @@ import {
 } from "@prisma/client";
 import type { User } from "@prisma/client";
 
-if (process.env.NODE_ENV === "production") {
-  throw new Error("The demo seed is disabled in production.");
+if (
+  process.env.NODE_ENV === "production" &&
+  (process.env.SEED_ISOLATED_DEMO_DATABASE !== "true" ||
+    process.env.DEMO_DATABASE_ISOLATED !== "true")
+) {
+  throw new Error(
+    "Production demo seeding requires SEED_ISOLATED_DEMO_DATABASE=true and DEMO_DATABASE_ISOLATED=true on a dedicated demo database.",
+  );
 }
 
 const prisma = new PrismaClient();

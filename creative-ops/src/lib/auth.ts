@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
+import { isDemoLoginEnabled } from "@/lib/demo-mode";
 
 const credentialsSchema = z.object({
   email: z.string().trim().email().max(254),
@@ -12,10 +13,6 @@ const credentialsSchema = z.object({
 const nextAuthSecret = process.env.NEXTAUTH_SECRET;
 if (process.env.NODE_ENV === "production" && !nextAuthSecret) {
   throw new Error("NEXTAUTH_SECRET must be configured in production.");
-}
-
-function demoLoginEnabled(): boolean {
-  return process.env.NODE_ENV !== "production";
 }
 
 export const authOptions: NextAuthOptions = {
@@ -36,7 +33,14 @@ export const authOptions: NextAuthOptions = {
         const email = parsed.data.email.toLowerCase();
         const user = await prisma.user.findUnique({ where: { email } });
         if (!user) return null;
-        if (user.isDemo && !demoLoginEnabled()) return null;
+        if (
+          user.isDemo &&
+          !isDemoLoginEnabled(
+            process.env.NODE_ENV,
+            process.env.ENABLE_DEMO_LOGIN,
+            process.env.DEMO_DATABASE_ISOLATED,
+          )
+        ) return null;
 
         const passwordIsValid = await compare(parsed.data.password, user.passwordHash);
         if (!passwordIsValid) return null;
