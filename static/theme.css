@@ -404,3 +404,295 @@ body :is(.offer-card, .service-card, .feature, .case, .portfolio-card, .related-
         min-height: 120px;
     }
 }
+
+:root {
+    color-scheme: dark;
+    --ivory: #0b0e0c;
+    --ivory-panel: #121714;
+    --ivory-soft: #141a16;
+    --ink: #f2f5ee;
+    --ink-muted: #a0aa9f;
+    --icon-gray: #92a084;
+    --theme-line: #303831;
+    --lime: #c9f36a;
+}
+
+html {
+    color-scheme: dark !important;
+    background: var(--ivory) !important;
+}
+
+body {
+    color: var(--ink) !important;
+    background: var(--ivory) !important;
+}
+
+header,
+.header {
+    border-color: var(--theme-line) !important;
+    background: rgba(11, 14, 12, .94) !important;
+    box-shadow: none !important;
+}
+
+.nav,
+.nav a,
+.brand,
+.header-inner,
+.crumbs,
+.footer,
+footer,
+body :is(h1, h2, h3, h4, p, li, dt, dd, label, summary, strong, small, .eyebrow, .intro, .muted, .section-heading span, .portfolio-category, .service-category, .step, .audience) {
+    color: var(--ink) !important;
+}
+
+body :is(p, li, dd, .intro, .muted, .section-heading p, .step p, .audience, .related-card span, .service-card p, .feature p, .case-copy p, .portfolio-copy p, .consent, .copyright, .footer, .crumbs) {
+    color: var(--ink-muted) !important;
+}
+
+a,
+.nav a,
+.language-switch,
+.lang-switch,
+.back,
+.privacy-link,
+.consent a {
+    color: var(--ink) !important;
+}
+
+a:hover,
+.nav a:hover,
+.language-switch:hover,
+.lang-switch:hover,
+.back:hover {
+    color: var(--lime) !important;
+}
+
+.nav {
+    border-color: var(--theme-line) !important;
+    background: rgba(18, 23, 20, .92) !important;
+    box-shadow: none !important;
+}
+
+.brand-symbol {
+    display: flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    clip-path: none !important;
+    border-radius: 50% !important;
+    background: #141a16 !important;
+    color: var(--lime) !important;
+    filter: none !important;
+}
+
+.brand-symbol span {
+    display: inline !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    clip-path: none !important;
+    background: none !important;
+    border: 0 !important;
+    font: inherit !important;
+    letter-spacing: inherit !important;
+    border-color: var(--theme-line) !important;
+    border-radius: 50% !important;
+    color: var(--lime) !important;
+    text-shadow: none !important;
+}
+
+.brand-mark {
+    border-color: var(--theme-line) !important;
+    color: var(--lime) !important;
+}
+
+.button,
+.nav-cta,
+.contact-form button,
+.cookie-notice button,
+.back-to-top {
+    border-color: var(--lime) !important;
+    background: var(--lime) !important;
+    box-shadow: none !important;
+    color: #14190e !important;
+}
+
+.button:hover,
+.nav-cta:hover,
+.contact-form button:hover,
+.cookie-notice button:hover,
+.back-to-top:hover {
+    background: #d7ff84 !important;
+    color: #14190e !important;
+    box-shadow: 0 8px 26px rgba(201, 243, 106, .14) !important;
+}
+
+.button-outline,
+.button-secondary,
+.secondary {
+    border-color: var(--theme-line) !important;
+    background: #121714 !important;
+    color: var(--ink) !important;
+    box-shadow: none !important;
+}
+
+.gradient-text,
+.gradient {
+    background: linear-gradient(100deg, #f2f5ee, var(--lime)) !important;
+    background-clip: text !important;
+    color: var(--lime) !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+i[class*="fa-"],
+i[class*="fa-"]::before,
+.metric-icon,
+.card-icon,
+.service-card i,
+.contact-channels i,
+.includes li::before,
+.back-to-top i {
+    color: var(--lime) !important;
+    background: none !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: var(--lime) !important;
+    animation: none !important;
+    filter: none !important;
+    text-shadow: none !important;
+}
+
+.offer-card,
+.metric,
+.industry-card,
+.benefit-card,
+.format-card,
+.integration-card,
+.pain-card,
+.faq-list details,
+.contact-panel,
+.requisites,
+.step,
+.service-card,
+.feature,
+.case,
+.portfolio-card,
+.closing,
+.audience,
+.includes li,
+.related-card,
+.service-faq details,
+.review-card,
+.result-card {
+    border-color: var(--theme-line) !important;
+    background: var(--ivory-panel) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .18) !important;
+}
+
+.offer-card:hover,
+.metric:hover,
+.industry-card:hover,
+.service-card:hover,
+.related-card:hover,
+.portfolio-card:hover {
+    border-color: rgba(201, 243, 106, .48) !important;
+}
+
+.hero,
+.section,
+.contact-section,
+main {
+    border-color: var(--theme-line) !important;
+}
+
+.hero::before,
+.hero::after {
+    display: block !important;
+    border-color: rgba(201, 243, 106, .13) !important;
+}
+
+.hero::before {
+    box-shadow: inset 0 0 90px rgba(201, 243, 106, .045), 0 0 90px rgba(201, 243, 106, .04) !important;
+}
+
+.hero::after {
+    background: radial-gradient(ellipse at center, rgba(201, 243, 106, .08), transparent 66%) !important;
+}
+
+.hero h1 {
+    max-width: 850px !important;
+    font-size: clamp(2.65rem, 5.3vw, 4.7rem) !important;
+}
+
+.contact-form input,
+.contact-form textarea,
+input,
+textarea {
+    border-color: var(--theme-line) !important;
+    background: #090c0a !important;
+    color: var(--ink) !important;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder,
+input::placeholder,
+textarea::placeholder {
+    color: #778177 !important;
+}
+
+.cookie-notice {
+    border-color: var(--theme-line) !important;
+    background: var(--ivory-panel) !important;
+    box-shadow: 0 14px 48px rgba(0, 0, 0, .38) !important;
+}
+
+.cookie-notice p {
+    color: var(--ink-muted) !important;
+}
+
+.case-visual::after,
+.portfolio-visual::after {
+    border-color: rgba(242, 245, 238, .28) !important;
+    background: rgba(11, 14, 12, .8) !important;
+    color: var(--ink) !important;
+}
+
+.skip-link {
+    border-color: var(--theme-line);
+    background: var(--ivory-panel);
+    color: var(--ink) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .4);
+}
+
+:focus-visible {
+    outline-color: var(--lime) !important;
+}
+
+body :is(.offer-card, .service-card, .feature, .case, .portfolio-card, .related-card, .format-card, .integration-card):focus-within {
+    border-color: var(--lime) !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .34) !important;
+}
+
+@media (hover: hover) {
+    body :is(.service-card, .related-card, .format-card, .integration-card):hover {
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .34) !important;
+    }
+}
+
+::selection {
+    background: var(--lime);
+    color: #14190e;
+}
+
+@media (max-width: 700px) {
+    .nav {
+        background: var(--ivory-panel) !important;
+    }
+
+    .hero h1 {
+        max-width: 100% !important;
+        font-size: clamp(2.1rem, 9vw, 2.7rem) !important;
+        line-height: 1.04 !important;
+    }
+}

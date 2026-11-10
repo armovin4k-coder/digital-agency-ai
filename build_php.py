@@ -39,6 +39,15 @@ def get_pages(service_slugs):
         "/en": "en.html",
         "/privacy": "privacy.html",
         "/en/privacy": "en_privacy.html",
+        "/projects/splav-po-mane": "project_splav_po_mane.html",
+        "/projects/cvety-ryadom": "project_cvety_ryadom.html",
+        "/projects/lusolink": "project_lusolink.html",
+        "/projects/digital-agency-ai": "project_digital_agency_ai.html",
+        "/industries/": "industries.html",
+        "/industries/beauty/": "industry_beauty.html",
+        "/industries/medical/": "industry_medical.html",
+        "/industries/construction/": "industry_construction.html",
+        "/industries/tourism/": "industry_tourism.html",
     }
     for slug in service_slugs:
         pages[f"/services/{slug}"] = f"service_{slug}.html"

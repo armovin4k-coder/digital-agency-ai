@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f4f0e6">
+    <meta name="theme-color" content="#0b0e0c">
     <meta name="description" content="Digital Agency AI builds websites, SEO, advertising, chatbots and business automation for companies in Krasnoyarsk, Krasnoyarsk Krai and beyond.">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="{{ canonical_url }}">
@@ -125,7 +125,7 @@
         }
         @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; animation-duration:.01ms!important; } }
     </style>
-    <script type="application/ld+json" nonce="{{ csp_nonce }}">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Digital Agency AI","areaServed":["Krasnoyarsk","Krasnoyarsk Krai"],"address":{"@type":"PostalAddress","addressLocality":"Krasnoyarsk","addressRegion":"Krasnoyarsk Krai","postalCode":"660012","addressCountry":"RU"},"telephone":"+7-923-333-95-96","email":"kuzminflo@icloud.com","sameAs":["https://wa.me/5548920052606","https://t.me/kuzminkrsk"],"url":"{{ canonical_url }}"}</script>
+    <script type="application/ld+json" nonce="{{ csp_nonce }}">{"@context":"https://schema.org","@type":"Organization","name":"Digital Agency AI","email":"kuzminflo@icloud.com","sameAs":["https://t.me/kuzminkrsk"],"url":"{{ canonical_url }}"}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -133,7 +133,7 @@
     <div class="container header-inner">
         <a class="brand" href="/en">DA · Digital Agency AI</a>
         <nav class="nav" aria-label="Main navigation">
-            <a href="#services">Services</a><a href="#integrations">Integrations</a><a href="#cases">Projects</a><a href="#workflow">Process</a><a href="#contact">Contact</a>
+            <a href="#services">Services</a><a href="#integrations">Integrations</a><a href="#cases">Projects</a><a href="/industries/">Industries</a><a href="#workflow">Process</a><a href="#contact">Contact</a>
         </nav>
         <div class="header-actions"><a class="lang-switch" href="/">RU</a><a class="button" href="#contact">Discuss a project</a></div>
     </div>
@@ -169,16 +169,25 @@
     </section>
     <section class="section" id="cases">
         <div class="container">
-            <div class="section-heading"><span class="eyebrow">Selected projects</span><h2>Digital products across different industries</h2><p>Examples of websites and Telegram Mini Apps. We do not publish unverified performance metrics.</p></div>
+            <div class="section-heading"><span class="eyebrow">Selected projects</span><h2>Implemented work, own products and concepts</h2><p>We distinguish live projects and agency products from visual concepts. No unverified performance metrics are published.</p></div>
+            <h3>Implemented projects</h3>
             <div class="case-grid">
-                <article class="case"><div class="case-visual"><img src="/static/cases/flowers-miniapp-optimized.jpg" alt="Flower shop Telegram Mini App screens" width="768" height="768" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Flowers Nearby</h3><p>Telegram shop with a catalogue, product pages, cart, checkout and order tracking.</p></div></article>
-                <article class="case"><div class="case-visual"><img src="/static/cases/pknvr-optimized.jpg" alt="PKNVR clothing store website" width="413" height="900" loading="lazy" decoding="async"></div><div class="case-copy"><h3>PKNVR</h3><p>Mobile-first clothing storefront with a catalogue, favourites and collection looks.</p></div></article>
-                <article class="case"><div class="case-visual"><img src="/static/cases/nail-studio-optimized.jpg" alt="Nail Studio website and booking Mini App" width="1152" height="768" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Nail Studio</h3><p>Studio website and Telegram Mini App for service selection, schedules and bookings.</p></div></article>
-                <article class="case"><div class="case-visual"><img src="/static/cases/celsior-optimized.jpg" alt="Celsior detailing studio Mini App" width="412" height="900" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Celsior · Krasnoyarsk</h3><p>Mobile app for detailing services, appointments and service history.</p></div></article>
-                <article class="case"><div class="case-visual"><img src="/static/cases/auto-prime-optimized.jpg" alt="Auto Prime car dealership website design" width="600" height="900" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Auto Prime</h3><p>Dealership website with vehicle listings, services and enquiry forms.</p></div></article>
-                <article class="case"><div class="case-copy"><h3>Rafting on the Mana</h3><p>Website for a tourism project offering rafting trips on the Mana River.</p></div></article>
+                <article class="case"><div class="case-copy"><h3>Rafting on the Mana</h3><p>Public website for a tourism project. Detailed implementation scope and technologies require confirmation.</p><a href="/projects/splav-po-mane">Project details ↗</a></div></article>
+                <article class="case"><div class="case-visual"><img src="/static/cases/flowers-miniapp-optimized.jpg" alt="Overview of Telegram Mini App screens for the Flowers Nearby shop" width="768" height="768" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Flowers Nearby</h3><p>Telegram shop with a catalogue, product pages, cart, checkout, order tracking and management scenarios.</p><a href="/projects/cvety-ryadom">Project details ↗</a></div></article>
             </div>
-            <p class="note">Case studies are shown without quantitative claims; confirmed results can be added when provided.</p>
+            <h3>Our own digital products</h3>
+            <div class="case-grid">
+                <article class="case"><div class="case-copy"><h3>LusoLink</h3><p>Language-learning platform for Russian speakers studying Brazilian Portuguese and Brazilians studying Russian. Public demo and completed features are not confirmed.</p><a href="/projects/lusolink">Product details ↗</a></div></article>
+                <article class="case"><div class="case-copy"><h3>Digital Agency AI</h3><p>The agency's own bilingual services website and digital platform.</p><a href="/projects/digital-agency-ai">Platform details ↗</a></div></article>
+            </div>
+            <h3>Demo concepts</h3>
+            <div class="case-grid">
+                <article class="case"><div class="case-visual"><img src="/static/cases/pknvr-optimized.jpg" alt="Demo concept for a mobile clothing storefront" width="413" height="900" loading="lazy" decoding="async"></div><div class="case-copy"><h3>PKNVR</h3><p>Visual concept; not presented as a verified client implementation.</p></div></article>
+                <article class="case"><div class="case-visual"><img src="/static/cases/nail-studio-optimized.jpg" alt="Demo concept for a nail studio website and Mini App" width="1152" height="768" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Nail Studio</h3><p>Visual concept for a service website and booking flow.</p></div></article>
+                <article class="case"><div class="case-visual"><img src="/static/cases/celsior-optimized.jpg" alt="Demo concept for a detailing studio Telegram Mini App" width="412" height="900" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Celsior</h3><p>Demo concept; implementation status is not confirmed.</p></div></article>
+                <article class="case"><div class="case-visual"><img src="/static/cases/auto-prime-optimized.jpg" alt="Demo concept for an automotive website" width="600" height="900" loading="lazy" decoding="async"></div><div class="case-copy"><h3>Auto Prime</h3><p>Visual concept for a vehicle catalogue and dealership page.</p></div></article>
+            </div>
+            <p class="note">Demos are illustrations, not completed client work or measured outcomes.</p>
         </div>
     </section>
     <section class="section" id="workflow">
@@ -215,7 +224,6 @@
         <div class="container contact-panel">
             <div><span class="eyebrow">A good first step</span><h2>Let’s discuss your project</h2><p>Leave your contact details and a short description. We’ll get back to you to clarify the request and possible scope.</p>
                 <nav class="contact-channels" aria-label="Other ways to contact us">
-                    <a href="https://wa.me/5548920052606" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp: +55 48 92005-2606</a>
                     <a href="https://t.me/kuzminkrsk" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram" aria-hidden="true"></i>Telegram: @kuzminkrsk</a>
                     <a href="mailto:kuzminflo@icloud.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i>kuzminflo@icloud.com</a>
                     <a href="tel:+79233339596"><i class="fa-solid fa-phone" aria-hidden="true"></i>+7 (923) 333-95-96</a>

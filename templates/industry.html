@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111315">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="{{ industry.description }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:title" content="{{ industry.meta_title }}">
+    <meta property="og:description" content="{{ industry.description }}">
+    <title>{{ industry.meta_title }}</title>
+    <link rel="stylesheet" href="/static/projects.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <header class="project-header">
+        <a class="project-brand" href="/" aria-label="Digital Agency AI — главная">
+            <span class="brand-mark" aria-hidden="true">d<span>.</span></span>
+            <span>digital agency <b>ai</b></span>
+        </a>
+        <nav aria-label="Основная навигация">
+            <a href="/industries/">Отрасли</a>
+            <a href="/#services">Услуги</a>
+            <a class="header-cta" href="/#contact">Обсудить задачу <span aria-hidden="true">↗</span></a>
+        </nav>
+    </header>
+
+    <main id="main" class="project-page industry-page">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="/">Главная</a><span aria-hidden="true">/</span>
+            <a href="/industries/">Отрасли</a><span aria-hidden="true">/</span>
+            <span aria-current="page">{{ industry.title }}</span>
+        </nav>
+
+        <section class="project-hero">
+            <div class="project-intro">
+                <p class="project-kind">РЕШЕНИЯ ДЛЯ БИЗНЕСА</p>
+                <h1>{{ industry.title }}</h1>
+                <p class="project-lead">{{ industry.lead }}</p>
+                <a class="project-button" href="/#contact">Обсудить проект <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="project-art" aria-hidden="true"><span>DA</span><i>DIGITAL SOLUTIONS / {{ industry.title|upper }}</i></div>
+        </section>
+
+        <section class="project-detail-grid" aria-label="Задачи и решения">
+            <article>
+                <p class="detail-label">КОНТЕКСТ</p>
+                <h2>Знакомые задачи отрасли</h2>
+                <ul>
+                    {% for problem in industry.problems %}
+                    <li>{{ problem }}</li>
+                    {% endfor %}
+                </ul>
+            </article>
+            <article>
+                <p class="detail-label">ПОДХОД</p>
+                <h2>Что можно сделать</h2>
+                <ul>
+                    {% for solution in industry.solutions %}
+                    <li>{{ solution }}</li>
+                    {% endfor %}
+                </ul>
+            </article>
+        </section>
+
+        <section class="industry-services" aria-labelledby="industry-services-title">
+            <p class="detail-label">НАПРАВЛЕНИЯ</p>
+            <h2 id="industry-services-title">Услуги под задачи бизнеса</h2>
+            <div class="industry-service-grid">
+                {% for service in related_services %}
+                <a class="industry-service-card" href="{{ url_for('service_detail', slug=service.slug) }}">
+                    <span>{{ service.title }}</span><span aria-hidden="true">↗</span>
+                    <small>{{ service.summary }}</small>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="project-detail-grid industry-process" aria-label="Как строится работа">
+            <article><p class="detail-label">01 / ОБСУЖДЕНИЕ</p><h2>Задача и аудитория</h2><p>Уточняем предложение, целевое действие, ограничения и текущие инструменты.</p></article>
+            <article><p class="detail-label">02 / ПЛАН</p><h2>Объём и приоритеты</h2><p>Согласуем состав работ, материалы со стороны клиента, критерии проверки и смету.</p></article>
+            <article><p class="detail-label">03 / РЕАЛИЗАЦИЯ</p><h2>Разработка и проверка</h2><p>Создаём согласованное решение, проверяем сценарии и обсуждаем следующий этап.</p></article>
+        </section>
+
+        <section class="industry-proof">
+            <div>
+                <p class="detail-label">ПРИМЕР</p>
+                <h2>{% if industry.example_title %}{{ industry.example_title }}{% else %}Портфолио{% endif %}</h2>
+                <p>{{ industry.example_note }}</p>
+            </div>
+            {% if industry.example_url %}
+            <a class="project-button" href="{{ industry.example_url }}"{% if industry.example_url.startswith('http') %} target="_blank" rel="noopener noreferrer"{% endif %}>
+                {% if industry.example_url.startswith('http') %}Открыть проект{% else %}Смотреть портфолио{% endif %} <span aria-hidden="true">↗</span>
+            </a>
+            {% endif %}
+        </section>
+
+        {% if industry.notice %}
+        <p class="project-note">{{ industry.notice }}</p>
+        {% endif %}
+
+        <section class="project-next">
+            <div><p class="detail-label">СЛЕДУЮЩИЙ ШАГ</p><h2>Обсудим задачу вашей компании?</h2><p>Расскажите о процессе и нужном результате — предложим подходящий первый шаг.</p></div>
+            <a class="project-button" href="/#contact">Оставить обращение <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+    <footer class="project-footer">
+        <a href="/">Digital Agency AI</a>
+        <div><a href="https://t.me/kuzminkrsk" target="_blank" rel="noopener noreferrer">Telegram</a><a href="mailto:kuzminkflo@icloud.com">Email</a></div>
+    </footer>
+</body>
+</html>

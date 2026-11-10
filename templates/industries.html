@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111315">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Сайты, интеграции и продвижение с учётом задач салонов красоты, медицинских центров, строительных компаний и туристических проектов.">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:title" content="Решения для отраслей — Digital Agency AI">
+    <meta property="og:description" content="Цифровые инструменты с учётом задач бизнеса. Выберите отрасль и обсудите свой проект.">
+    <title>Решения для отраслей — Digital Agency AI</title>
+    <link rel="stylesheet" href="/static/projects.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <header class="project-header">
+        <a class="project-brand" href="/" aria-label="Digital Agency AI — главная">
+            <span class="brand-mark" aria-hidden="true">d<span>.</span></span>
+            <span>digital agency <b>ai</b></span>
+        </a>
+        <nav aria-label="Основная навигация">
+            <a href="/#cases">Проекты</a>
+            <a href="/#services">Услуги</a>
+            <a class="header-cta" href="/#contact">Обсудить проект <span aria-hidden="true">↗</span></a>
+        </nav>
+    </header>
+    <main id="main" class="project-page industry-directory">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Отрасли</span></nav>
+        <section class="project-hero">
+            <div class="project-intro">
+                <p class="project-kind">ОТРАСЛЕВЫЕ РЕШЕНИЯ</p>
+                <h1>Цифровые инструменты под задачи бизнеса</h1>
+                <p class="project-lead">Не шаблонные обещания, а сочетание сайта, автоматизации и продвижения после обсуждения вашего процесса.</p>
+                <a class="project-button" href="/#contact">Обсудить задачу <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="project-art" aria-hidden="true"><span>DA</span><i>INDUSTRIES / BUSINESS FIRST</i></div>
+        </section>
+        <section class="industry-directory-grid" aria-label="Выберите отрасль">
+            {% for slug, industry in industries.items() %}
+            <article class="industry-directory-card">
+                <p class="detail-label">0{{ loop.index }} / НАПРАВЛЕНИЕ</p>
+                <h2>{{ industry.title }}</h2>
+                <p>{{ industry.lead }}</p>
+                <a href="{{ url_for('industry_detail', slug=slug) }}">Решения для отрасли <span aria-hidden="true">↗</span></a>
+            </article>
+            {% endfor %}
+        </section>
+        <p class="project-note">Страницы не утверждают о наличии офисов в указанных регионах, не обещают коммерческие результаты и используют только подтверждённые примеры работ.</p>
+    </main>
+    <footer class="project-footer">
+        <a href="/">Digital Agency AI</a>
+        <div><a href="https://t.me/kuzminkrsk" target="_blank" rel="noopener noreferrer">Telegram</a><a href="mailto:kuzminkflo@icloud.com">Email</a></div>
+    </footer>
+</body>
+</html>

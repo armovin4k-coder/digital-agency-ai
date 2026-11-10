@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f4f0e6">
-    <meta name="description" content="Digital-агентство в Красноярске: разработка сайтов, SEO-продвижение, реклама, чат-боты и автоматизация для бизнеса Красноярского края и России.">
+    <meta name="theme-color" content="#0b0e0c">
+    <meta name="description" content="Разработка сайтов, Telegram-продуктов и автоматизации для бизнеса Красноярска и края. Работаем дистанционно; проекты — от 15 000 ₽.">
+    <meta name="yandex-verification" content="84ceeeaf3a1a9873">
     <meta name="robots" content="index,follow">
     <meta name="geo.region" content="RU-KYA">
     <meta name="geo.placename" content="Красноярск">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Digital Agency AI — digital-услуги в Красноярске">
-    <meta property="og:description" content="Сайты, SEO, реклама и автоматизация для бизнеса Красноярска и Красноярского края.">
-    <script type="application/ld+json" nonce="{{ csp_nonce }}">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Digital Agency AI","areaServed":[{"@type":"City","name":"Красноярск"},{"@type":"AdministrativeArea","name":"Красноярский край"}],"address":{"@type":"PostalAddress","addressLocality":"Красноярск","addressRegion":"Красноярский край","postalCode":"660012","addressCountry":"RU"},"telephone":"+7-923-333-95-96","email":"kuzminflo@icloud.com","sameAs":["https://wa.me/5548920052606","https://t.me/kuzminkrsk"],"url":"{{ canonical_url }}"}</script>
+    <meta property="og:title" content="Digital Agency AI — цифровые решения для бизнеса Красноярска">
+    <meta property="og:description" content="Сайты, Telegram, дизайн, SEO, SMM, реклама и автоматизация для бизнеса Красноярска и края. Работаем дистанционно.">
+    <script type="application/ld+json" nonce="{{ csp_nonce }}">{"@context":"https://schema.org","@type":"Organization","name":"Digital Agency AI","email":"kuzminflo@icloud.com","sameAs":["https://t.me/kuzminkrsk"],"url":"{{ canonical_url }}"}</script>
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="alternate" hreflang="ru-RU" href="{{ canonical_url }}">
     <link rel="alternate" hreflang="en" href="{{ canonical_url }}/en">
     <link rel="alternate" hreflang="x-default" href="{{ canonical_url }}">
-    <title>Digital-агентство — сайты, SEO и автоматизация | Digital Agency AI</title>
+    <title>Digital Agency AI — цифровые решения для бизнеса Красноярска</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -965,6 +966,16 @@
             i[class*="fa-"] { transition: none !important; }
             i[class*="fa-"]::before, .includes li::before { animation: none !important; }
         }
+        .portfolio-groups { display: grid; gap: 34px; }
+        .portfolio-group[hidden] { display: none; }
+        .portfolio-group > h3 { margin: 0 0 8px; font-size: clamp(1.05rem, 2.4vw, 1.45rem); }
+        .portfolio-group-note { margin: 0 0 14px; color: var(--muted, #929793); font-size: .82rem; }
+        .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .project-grid .portfolio-card { min-width: 0; min-height: 100%; }
+        .project-grid .portfolio-copy h4 { margin: 7px 0; font-size: 1rem; }
+        .project-visual { min-height: 150px; }
+        @media (max-width: 900px) { .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 620px) { .project-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -973,19 +984,20 @@
     <header class="header">
         <div class="container header-inner">
             <a class="brand" href="#home" aria-label="Digital Agency AI — на главную">
-                <span class="brand-symbol" aria-hidden="true"><span>DA</span></span>
+                <span class="brand-symbol" aria-hidden="true">d<span>.</span></span>
             </a>
             <nav class="nav" id="siteNav" aria-label="Главное меню">
                 <a href="#services">Услуги</a>
                 <a href="#advantages">Преимущества</a>
                 <a href="#cases">Кейсы</a>
+                <a href="/industries/">Отраслям</a>
                 <a href="#workflow">Этапы</a>
                 <a href="#faq">Вопросы</a>
                 <a href="#pricing">Форматы</a>
                 <a href="#contact">Контакты</a>
             </nav>
             <a class="language-switch" href="{{ url_for('home_en') }}" lang="en" aria-label="View the English version">EN</a>
-            <a class="nav-cta" href="#contact">Запустить проект</a>
+            <a class="nav-cta" href="#contact">Обсудить проект <span aria-hidden="true">↗</span></a>
             <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="siteNav">
                 <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
@@ -995,12 +1007,13 @@
 
     <main id="main-content" tabindex="-1">
         <section class="container hero" id="home" aria-labelledby="heroTitle">
-            <h1 id="heroTitle">Разрабатываем и развиваем <span class="gradient-text">цифровые решения</span> для бизнеса</h1>
-            <p class="hero-copy">Сайты, продвижение, чат-боты и автоматизация для компаний Красноярска, Красноярского края и проектов по всей России.</p>
+            <h1 id="heroTitle">Разрабатываем <span class="gradient-text">цифровые решения</span> для роста вашего бизнеса</h1>
+            <p class="hero-copy">Создаём сайты, веб-приложения, Telegram Mini Apps и AI-инструменты. Разрабатываем дизайн, запускаем SEO и SMM-продвижение, автоматизируем бизнес-процессы. Красноярск, Красноярский край и вся Россия.</p>
             <div class="hero-actions">
-                <a class="button" href="#contact">Описать задачу</a>
-                <a class="button button-outline" href="#services">Смотреть услуги</a>
+                <a class="button" href="#contact">Обсудить проект</a>
+                <a class="button button-outline" href="#cases">Смотреть портфолио</a>
             </div>
+            <p class="hero-copy">От идеи и дизайна до разработки, запуска и продвижения.</p>
             <div class="metrics" aria-label="Направления работы">
                 <a class="metric" href="{{ url_for('service_detail', slug='website-development') }}"><i class="metric-icon fa-solid fa-laptop-code" aria-hidden="true"></i><strong>Разработка</strong><small>Сайты и веб-сервисы</small></a>
                 <a class="metric" href="{{ url_for('service_detail', slug='business-promotion') }}"><i class="metric-icon fa-solid fa-bullhorn" aria-hidden="true"></i><strong>Продвижение</strong><small>SEO, реклама и SMM</small></a>
@@ -1096,33 +1109,63 @@
 
         <section class="landing-section" id="cases" aria-labelledby="casesTitle">
             <div class="container">
-                <div class="section-heading"><span class="section-kicker">Наши проекты</span><h2 id="casesTitle">Кейсы и цифровые решения</h2><p>Сайты и Mini App для туризма, торговли, авто и сферы услуг. Результаты не приводим, так как подтверждённые метрики пока не указаны.</p></div>
+                <div class="section-heading"><span class="section-kicker">Портфолио</span><h2 id="casesTitle">Реальные проекты.<br>Отдельно — собственные продукты и концепты.</h2><p>Показываем, где есть реализованный продукт, а где — собственная разработка или демонстрационная идея. Не публикуем неподтверждённые результаты.</p></div>
                 <div class="portfolio-tabs" role="group" aria-label="Фильтр проектов">
-                    <button class="portfolio-tab" type="button" data-filter="all" aria-pressed="true">Все проекты</button>
+                    <button class="portfolio-tab" type="button" data-filter="all" aria-pressed="true">Все</button>
+                    <button class="portfolio-tab" type="button" data-filter="realized" aria-pressed="false">Реализованные</button>
+                    <button class="portfolio-tab" type="button" data-filter="owned" aria-pressed="false">Собственные продукты</button>
+                    <button class="portfolio-tab" type="button" data-filter="demo" aria-pressed="false">Демо-концепты</button>
                     <button class="portfolio-tab" type="button" data-filter="website" aria-pressed="false">Сайты</button>
-                    <button class="portfolio-tab" type="button" data-filter="miniapp" aria-pressed="false">Mini App</button>
-                    <button class="portfolio-tab" type="button" data-filter="retail" aria-pressed="false">Торговля</button>
-                    <button class="portfolio-tab" type="button" data-filter="services" aria-pressed="false">Услуги</button>
-                    <button class="portfolio-tab" type="button" data-filter="travel" aria-pressed="false">Туризм</button>
-                    <button class="portfolio-tab" type="button" data-filter="automotive" aria-pressed="false">Авто</button>
+                    <button class="portfolio-tab" type="button" data-filter="telegram" aria-pressed="false">Telegram</button>
+                    <button class="portfolio-tab" type="button" data-filter="webapp" aria-pressed="false">Веб-приложения</button>
+                    <button class="portfolio-tab" type="button" data-filter="ai" aria-pressed="false">AI и автоматизация</button>
+                    <button class="portfolio-tab" type="button" data-filter="design" aria-pressed="false">Дизайн</button>
+                    <button class="portfolio-tab" type="button" data-filter="seo" aria-pressed="false">SEO</button>
+                    <button class="portfolio-tab" type="button" data-filter="smm" aria-pressed="false">SMM</button>
                 </div>
-                <div class="industry-carousel" data-autoplay-carousel data-carousel-label="отраслевое решение" aria-label="Карусель решений для отраслей">
-                    <button class="offer-arrow" type="button" data-carousel-previous aria-label="Предыдущие решения"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-                    <div class="industry-window" data-carousel-window>
-                    <div class="portfolio-grid industry-track" data-carousel-track>
-                    <article class="portfolio-card" data-categories="website travel"><div class="portfolio-visual"><i class="fa-solid fa-water" aria-hidden="true"></i></div><div class="portfolio-copy"><span class="portfolio-category">Туризм · сайт</span><h3>Сплав по Мане</h3><p>Сайт туристического проекта о сплавах по Мане.</p><a class="portfolio-result" href="https://сплавпомане.рф" target="_blank" rel="noopener noreferrer">Открыть сайт <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div></article>
-                    <article class="portfolio-card" data-categories="miniapp retail"><div class="portfolio-visual has-image has-overview"><img src="/static/cases/flowers-miniapp-optimized.jpg" alt="Экраны Telegram Mini App интернет-магазина цветов «Цветы рядом»" width="768" height="768" loading="lazy" decoding="async"></div><div class="portfolio-copy"><span class="portfolio-category">Цветы · Telegram Mini App</span><h3>Цветы рядом</h3><p>Магазин цветов в Telegram: каталог, карточки товаров, корзина, оформление и отслеживание заказов.</p></div></article>
-                    <article class="portfolio-card" data-categories="website retail"><div class="portfolio-visual"><i class="fa-solid fa-gem" aria-hidden="true"></i></div><div class="portfolio-copy"><span class="portfolio-category">Ювелирный бренд · сайт</span><h3>Deli Durbar</h3><p>Сайт ювелирной студии с украшениями в Москве и Дубае.</p><a class="portfolio-result" href="https://jewelry-brand-landin-nzim.bolt.host/" target="_blank" rel="noopener noreferrer">Открыть сайт <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div></article>
-                    <article class="portfolio-card" data-categories="website retail"><div class="portfolio-visual has-image"><img src="/static/cases/pknvr-optimized.jpg" alt="Мобильный магазин одежды PKNVR" width="413" height="900" loading="lazy" decoding="async"></div><div class="portfolio-copy"><span class="portfolio-category">Одежда · онлайн-магазин</span><h3>PKNVR</h3><p>Мобильная витрина одежды с каталогом, избранным и образами коллекции.</p></div></article>
-                    <article class="portfolio-card" data-categories="website miniapp services"><div class="portfolio-visual has-image"><img src="/static/cases/nail-studio-optimized.jpg" alt="Сайт Nail Studio и экраны Telegram Mini App" width="1152" height="768" loading="lazy" decoding="async"></div><div class="portfolio-copy"><span class="portfolio-category">Nail Studio · сайт и Mini App</span><h3>Сайт студии и онлайн-запись</h3><p>Сайт студии и Telegram Mini App для записи, выбора услуг и просмотра расписания.</p></div></article>
-                    <article class="portfolio-card" data-categories="miniapp services"><div class="portfolio-visual has-image"><img src="/static/cases/celsior-optimized.jpg" alt="Главный экран Mini App студии Celsior" width="412" height="900" loading="lazy" decoding="async"></div><div class="portfolio-copy"><span class="portfolio-category">Детейлинг · Mini App</span><h3>Celsior, Красноярск</h3><p>Мобильное приложение студии с услугами, записями и историей обслуживания.</p></div></article>
-                    <article class="portfolio-card" data-categories="website automotive"><div class="portfolio-visual has-image"><img src="/static/cases/auto-prime-optimized.jpg" alt="Дизайн сайта автосалона Auto Prime с каталогом автомобилей" width="600" height="900" loading="lazy" decoding="async"></div><div class="portfolio-copy"><span class="portfolio-category">Автосалон · сайт</span><h3>Auto Prime</h3><p>Сайт автосалона с каталогом автомобилей, услугами по выкупу, обмену и подбору, преимуществами и формой заявки.</p></div></article>
-                    </div>
-                    </div>
-                    <button class="offer-arrow" type="button" data-carousel-next aria-label="Следующие решения"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                <div class="portfolio-groups">
+                    <section class="portfolio-group" data-portfolio-group aria-labelledby="implemented-projects-title">
+                        <h3 id="implemented-projects-title">Реализованные проекты</h3>
+                        <div class="portfolio-grid project-grid">
+                            <article class="portfolio-card" data-categories="realized website travel">
+                                <div class="portfolio-visual project-visual"><i class="fa-solid fa-water" aria-hidden="true"></i></div>
+                                <div class="portfolio-copy"><span class="portfolio-category">Туризм · сайт</span><h4>Сплав по Мане</h4><p>Публичный сайт туристического проекта о сплавах по Мане. Описание функций и технологий уточняется.</p><a class="portfolio-result" href="/projects/splav-po-mane">О проекте <span aria-hidden="true">↗</span></a></div>
+                            </article>
+                            <article class="portfolio-card" data-categories="realized telegram miniapp webapp retail">
+                                <div class="portfolio-visual has-image has-overview"><img src="/static/cases/flowers-miniapp-optimized.jpg" alt="Обзор экранов магазина цветов «Цветы рядом» в Telegram" width="768" height="768" loading="lazy" decoding="async"></div>
+                                <div class="portfolio-copy"><span class="portfolio-category">Telegram Mini App · магазин</span><h4>Цветы рядом</h4><p>Каталог и заказ товаров в Telegram, с пользовательскими и административными сценариями.</p><a class="portfolio-result" href="/projects/cvety-ryadom">Смотреть проект <span aria-hidden="true">↗</span></a></div>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="portfolio-group" data-portfolio-group aria-labelledby="owned-products-title">
+                        <h3 id="owned-products-title">Собственные цифровые продукты</h3>
+                        <div class="portfolio-grid project-grid">
+                            <article class="portfolio-card" data-categories="owned webapp ai">
+                                <div class="portfolio-visual project-visual"><i class="fa-solid fa-language" aria-hidden="true"></i></div>
+                                <div class="portfolio-copy"><span class="portfolio-category">Собственный продукт</span><h4>LusoLink</h4><p>Образовательная платформа: бразильский португальский для русскоязычных и русский язык для бразильцев.</p><a class="portfolio-result" href="/projects/lusolink">О продукте <span aria-hidden="true">↗</span></a></div>
+                            </article>
+                            <article class="portfolio-card" data-categories="owned website webapp design seo">
+                                <div class="portfolio-visual project-visual"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
+                                <div class="portfolio-copy"><span class="portfolio-category">Собственный продукт агентства</span><h4>Digital Agency AI</h4><p>Многостраничная платформа услуг и проектного брифа на русском и английском языках.</p><a class="portfolio-result" href="/projects/digital-agency-ai">О платформе <span aria-hidden="true">↗</span></a></div>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="portfolio-group" data-portfolio-group aria-labelledby="demo-projects-title">
+                        <h3 id="demo-projects-title">Демо-концепции и эксперименты</h3>
+                        <p class="portfolio-group-note">Эти материалы показывают возможные решения и не подтверждают выполнение коммерческого заказа.</p>
+                        <div class="portfolio-grid project-grid">
+                            <article class="portfolio-card" data-categories="demo website retail design"><div class="portfolio-visual"><i class="fa-solid fa-gem" aria-hidden="true"></i></div><div class="portfolio-copy"><span class="portfolio-category">Демо-концепт · сайт</span><h4>Deli Durbar</h4><p>Концепция витрины ювелирного бренда; не заявляется как подтверждённый клиентский проект.</p><a class="portfolio-result" href="https://jewelry-brand-landin-nzim.bolt.host/" target="_blank" rel="noopener noreferrer">Открыть демо <span aria-hidden="true">↗</span></a></div></article>
+                            <article class="portfolio-card" data-categories="demo website retail design"><div class="portfolio-visual has-image"><img src="/static/cases/pknvr-optimized.jpg" alt="Демонстрационная концепция мобильной витрины одежды PKNVR" width="413" height="900" loading="lazy" decoding="async"></div><div class="portfolio-copy"><span class="portfolio-category">Демо-концепт · дизайн</span><h4>PKNVR</h4><p>Мобильная концепция витрины одежды; коммерческая реализация и показатели не подтверждены.</p></div></article>
+                            <article class="portfolio-card" data-categories="demo website telegram services design"><div class="portfolio-visual has-image"><img src="/static/cases/nail-studio-optimized.jpg" alt="Демонстрационная концепция сайта и Mini App студии маникюра" width="1152" height="768" loading="lazy" decoding="async"></div><div class="portfolio-copy"><span class="portfolio-category">Демо-концепт · сайт и Mini App</span><h4>Nail Studio</h4><p>Иллюстрация сценариев выбора услуг и записи; не подтверждённый клиентский заказ.</p></div></article>
+                            <article class="portfolio-card" data-categories="demo telegram services design"><div class="portfolio-visual has-image"><img src="/static/cases/celsior-optimized.jpg" alt="Демонстрационная концепция Telegram Mini App для детейлинга" width="412" height="900" loading="lazy" decoding="async"></div><div class="portfolio-copy"><span class="portfolio-category">Демо-концепт · Telegram</span><h4>Celsior</h4><p>Концепция мобильного интерфейса для услуг детейлинга; статус внедрения не подтверждён.</p></div></article>
+                            <article class="portfolio-card" data-categories="demo website automotive design"><div class="portfolio-visual has-image"><img src="/static/cases/auto-prime-optimized.jpg" alt="Демонстрационная концепция сайта автосалона Auto Prime" width="600" height="900" loading="lazy" decoding="async"></div><div class="portfolio-copy"><span class="portfolio-category">Демо-концепт · сайт</span><h4>Auto Prime</h4><p>Концепция каталога и страницы автосалона; бизнес-результаты и запуск не заявляются.</p></div></article>
+                            <article class="portfolio-card" data-categories="demo ai webapp"><div class="portfolio-visual project-visual"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div><div class="portfolio-copy"><span class="portfolio-category">Демо-концепт · AI</span><h4>Помощник по базе знаний</h4><p>Сценарий поиска по внутренним материалам; интеграция и ответы на реальных данных не проверялись.</p></div></article>
+                            <article class="portfolio-card" data-categories="demo seo website"><div class="portfolio-visual project-visual"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></div><div class="portfolio-copy"><span class="portfolio-category">Демо-концепт · SEO</span><h4>Технический аудит сайта</h4><p>Пример структуры проверки индексации и метаданных; аудит реального сайта не проводился.</p></div></article>
+                            <article class="portfolio-card" data-categories="demo smm design"><div class="portfolio-visual project-visual"><i class="fa-solid fa-hashtag" aria-hidden="true"></i></div><div class="portfolio-copy"><span class="portfolio-category">Демо-концепт · SMM</span><h4>Контентная система</h4><p>Демонстрационный пример рубрик и форматов публикаций; контент и показатели аккаунта не являются реальными.</p></div></article>
+                        </div>
+                    </section>
                 </div>
-                <ol class="offer-dots" data-carousel-dots aria-label="Выбрать отраслевое решение"></ol>
-                <p class="portfolio-note">Кейсы представлены без количественных показателей: подтверждённые результаты можно будет добавить отдельно.</p>
+                <p class="portfolio-note">Результаты в цифрах не заявляются. Функции, технологии и статус работ указываются только при наличии подтверждения.</p>
             </div>
         </section>
 
@@ -1165,7 +1208,6 @@
                 <div>
                     <span class="section-kicker">Первый шаг</span><h2 id="contactTitle">Получите первичную оценку задачи</h2><p>Оставьте контакт и кратко опишите, что нужно сделать. Мы уточним детали и обсудим подходящий формат работ.</p>
                     <nav class="contact-channels" aria-label="Другие способы связи">
-                        <a href="https://wa.me/5548920052606" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp: +55 48 92005-2606</a>
                         <a href="https://t.me/kuzminkrsk" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram" aria-hidden="true"></i>Telegram: @kuzminkrsk</a>
                         <a href="mailto:kuzminflo@icloud.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i>kuzminflo@icloud.com</a>
                     </nav>
@@ -1233,6 +1275,7 @@
     const menuBackdrop = document.getElementById('menuBackdrop');
     const portfolioTabs = document.querySelectorAll('.portfolio-tab');
     const portfolioCards = document.querySelectorAll('.portfolio-card');
+    const portfolioGroups = document.querySelectorAll('[data-portfolio-group]');
     const backToTop = document.getElementById('backToTop');
 
     const updateBackToTop = () => {
@@ -1351,7 +1394,9 @@
                 const categories = card.dataset.categories.split(' ');
                 card.hidden = category !== 'all' && !categories.includes(category);
             });
-            document.querySelector('#cases [data-autoplay-carousel]').dispatchEvent(new Event('carouselrefresh'));
+            portfolioGroups.forEach((group) => {
+                group.hidden = !Array.from(group.querySelectorAll('.portfolio-card')).some((card) => !card.hidden);
+            });
         });
     });
 

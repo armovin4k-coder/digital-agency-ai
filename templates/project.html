@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111315">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="{{ project.description }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:title" content="{{ project.title }} — Digital Agency AI">
+    <meta property="og:description" content="{{ project.description }}">
+    {% if project.image %}
+    <meta property="og:image" content="{{ site_root_url }}{{ url_for('static', filename=project.image) }}">
+    {% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ project.title }} — Digital Agency AI">
+    <meta name="twitter:description" content="{{ project.description }}">
+    {% if project.image %}
+    <meta name="twitter:image" content="{{ site_root_url }}{{ url_for('static', filename=project.image) }}">
+    {% endif %}
+    <title>{{ project.title }} — Digital Agency AI</title>
+    <link rel="stylesheet" href="/static/projects.css">
+    <script type="application/ld+json" nonce="{{ csp_nonce }}">{{ {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": project.title,
+        "description": project.description,
+        "creator": {
+            "@type": "Organization",
+            "name": "Digital Agency AI",
+            "url": site_root_url
+        },
+        "url": canonical_url
+    } | tojson }}</script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <header class="project-header">
+        <a class="project-brand" href="/" aria-label="Digital Agency AI — главная">
+            <span class="brand-mark" aria-hidden="true">d<span>.</span></span>
+            <span>digital agency <b>ai</b></span>
+        </a>
+        <nav aria-label="Навигация проекта">
+            <a href="/#cases">Проекты</a>
+            <a href="/#services">Услуги</a>
+            <a class="header-cta" href="/#contact">Обсудить проект <span aria-hidden="true">↗</span></a>
+        </nav>
+    </header>
+
+    <main id="main" class="project-page">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="/">Главная</a><span aria-hidden="true">/</span>
+            <a href="/#cases">Проекты</a><span aria-hidden="true">/</span>
+            <span aria-current="page">{{ project.title }}</span>
+        </nav>
+
+        <section class="project-hero">
+            <div class="project-intro">
+                <p class="project-kind">{{ project.kind }}</p>
+                <h1>{{ project.title }}</h1>
+                <p class="project-lead">{{ project.summary }}</p>
+                {% if project.external_url %}
+                <a class="project-button" href="{{ project.external_url }}" target="_blank" rel="noopener noreferrer">
+                    {{ project.external_label }} <span aria-hidden="true">↗</span>
+                </a>
+                {% endif %}
+            </div>
+            {% if project.image %}
+            <figure class="project-image">
+                <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.image_alt }}" width="768" height="768">
+                <figcaption>Обзор экранов проекта</figcaption>
+            </figure>
+            {% else %}
+            <div class="project-art" aria-hidden="true"><span>DA</span><i>01 / DIGITAL PROJECT</i></div>
+            {% endif %}
+        </section>
+
+        <section class="project-detail-grid" aria-label="Описание проекта">
+            <article>
+                <p class="detail-label">01 / ЗАДАЧА</p>
+                <h2>Контекст</h2>
+                <p>{{ project.challenge }}</p>
+            </article>
+            <article>
+                <p class="detail-label">02 / РЕШЕНИЕ</p>
+                <h2>Подход</h2>
+                <p>{{ project.solution }}</p>
+            </article>
+        </section>
+
+        <section class="project-facts">
+            <div>
+                <p class="detail-label">ВОЗМОЖНОСТИ</p>
+                <h2>Что входит в проект</h2>
+                <ul>
+                    {% for feature in project.features %}
+                    <li>{{ feature }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% if project.technologies %}
+            <div>
+                <p class="detail-label">ТЕХНОЛОГИИ</p>
+                <h2>Технологический стек</h2>
+                <ul class="technology-list">
+                    {% for technology in project.technologies %}
+                    <li>{{ technology }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </section>
+
+        <p class="project-note">{{ project.status_note }}</p>
+
+        <section class="project-next">
+            <div>
+                <p class="detail-label">СЛЕДУЮЩИЙ ШАГ</p>
+                <h2>Обсудим похожую задачу?</h2>
+                <p>Расскажите о проекте — подберём подходящий формат и согласуем объём работ.</p>
+            </div>
+            <a class="project-button" href="/#contact">Обсудить проект <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+
+    <footer class="project-footer">
+        <a href="/">Digital Agency AI</a>
+        <div><a href="https://t.me/kuzminkrsk" target="_blank" rel="noopener noreferrer">Telegram</a><a href="mailto:kuzminkflo@icloud.com">Email</a></div>
+    </footer>
+</body>
+</html>

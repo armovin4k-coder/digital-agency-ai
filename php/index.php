@@ -312,6 +312,19 @@ if ($requestPath === '/sitemap.xml') {
     foreach ($serviceSlugs as $slug) {
         $localizedPages[] = array('/services/' . $slug, '/en/services/' . $slug);
     }
+    $projectPaths = array(
+        '/projects/splav-po-mane',
+        '/projects/cvety-ryadom',
+        '/projects/lusolink',
+        '/projects/digital-agency-ai',
+    );
+    $industryPaths = array(
+        '/industries/',
+        '/industries/beauty/',
+        '/industries/medical/',
+        '/industries/construction/',
+        '/industries/tourism/',
+    );
 
     $xml = '<?xml version="1.0" encoding="UTF-8"?>'
         . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
@@ -325,6 +338,14 @@ if ($requestPath === '/sitemap.xml') {
         $xml .= '<url><loc>' . $ruUrl . '</loc>' . $alternates . '</url>'
             . '<url><loc>' . $enUrl . '</loc>' . $alternates . '</url>';
     }
+    foreach ($projectPaths as $path) {
+        $url = htmlspecialchars($baseUrl . $path, ENT_XML1 | ENT_QUOTES, 'UTF-8');
+        $xml .= '<url><loc>' . $url . '</loc></url>';
+    }
+    foreach ($industryPaths as $path) {
+        $url = htmlspecialchars($baseUrl . $path, ENT_XML1 | ENT_QUOTES, 'UTF-8');
+        $xml .= '<url><loc>' . $url . '</loc></url>';
+    }
     echo $xml . '</urlset>';
     exit;
 }
@@ -334,6 +355,15 @@ $pageMap = array(
     '/en' => 'en.html',
     '/privacy' => 'privacy.html',
     '/en/privacy' => 'en_privacy.html',
+    '/projects/splav-po-mane' => 'project_splav_po_mane.html',
+    '/projects/cvety-ryadom' => 'project_cvety_ryadom.html',
+    '/projects/lusolink' => 'project_lusolink.html',
+    '/projects/digital-agency-ai' => 'project_digital_agency_ai.html',
+    '/industries' => 'industries.html',
+    '/industries/beauty' => 'industry_beauty.html',
+    '/industries/medical' => 'industry_medical.html',
+    '/industries/construction' => 'industry_construction.html',
+    '/industries/tourism' => 'industry_tourism.html',
 );
 if (preg_match('~^/services/([a-z0-9-]+)$~', $requestPath, $matches)
     && in_array($matches[1], $serviceSlugs, true)) {
